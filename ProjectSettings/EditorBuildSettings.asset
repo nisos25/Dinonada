@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/_Scenes/PhysicsTest.unity
+    guid: 1466a9799b59acb4389dcd0b2bb8679a
   m_configObjects: {}

@@ -19,13 +19,16 @@ public class PeopleSpawner: MonoBehaviour
     [SerializeField]
     float ySensib;
 
+
     [SerializeField]
     GameObject[] people;
 
+    private float[] xPositions;
 
     void Start()
     {
         spawnPositions = ScreenSize();
+        //Debug.Log(spawnPositions);
         StartCoroutine(Spawn());
     }
 
@@ -35,13 +38,17 @@ public class PeopleSpawner: MonoBehaviour
         Camera camera = Camera.main;
         Vector3 bottomLeftWorld = camera.ViewportToWorldPoint(new Vector3(0, 0, camera.nearClipPlane));
         Vector3 topRightWorld = camera.ViewportToWorldPoint(new Vector3(1, 1, camera.nearClipPlane));
+        float[] positionsX = { -topRightWorld.x, topRightWorld.x };
+        xPositions = positionsX;
         return new Vector2(topRightWorld.x, topRightWorld.y);
+
     }
 
     IEnumerator Spawn()
     {
+        int[] ran = { -1, 1 };
         int ranPeople = Random.Range(0,people.Length); 
-        Instantiate(people[ranPeople],spawnPositions,Quaternion.identity);
+        Instantiate(people[ranPeople],new Vector2(xPositions[Random.Range(0,xPositions.Length)],0),Quaternion.identity);
         yield return new WaitForSeconds(secondsToSpawn);
         StartCoroutine(Spawn());
     }

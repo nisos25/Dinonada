@@ -9,7 +9,7 @@ public class Imbalance : MonoBehaviour
     [SerializeField]
     private float stableTime;
     [SerializeField]
-    private int maxAngle;
+    private int maxAngle=0;
     [SerializeField]
     private float randRangeRotation;
 
