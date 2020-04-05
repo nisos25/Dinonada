@@ -10,6 +10,8 @@ public class Imbalance : MonoBehaviour
     private float stableTime;
     [SerializeField]
     private int maxAngle;
+    [SerializeField]
+    private float randRangeRotation;
 
     private float yMov;
     private float inactiveTime;
@@ -39,7 +41,7 @@ public class Imbalance : MonoBehaviour
         {
             if(inactiveTime <= Time.time + 1)
             {
-                StartCoroutine(Estabilize());
+                //StartCoroutine(Estabilize());
             }
         }
     }
@@ -52,7 +54,7 @@ public class Imbalance : MonoBehaviour
 
     IEnumerator ChangeValueRotation()
     {
-        yMov = Random.Range(-1f, 1f);
+        yMov = Random.Range(-randRangeRotation, randRangeRotation);
         yield return new WaitForSeconds(stableTime);
         StartCoroutine(ChangeValueRotation());
     }

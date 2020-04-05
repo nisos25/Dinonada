@@ -390,9 +390,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09abb7bfa36b8a44da3bacf06b945f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stableSpeed: 10
-  stableTime: 0.5
+  stableSpeed: 5
+  stableTime: 1
   maxAngle: 45
+  randRangeRotation: 0.1
 --- !u!212 &464519322
 SpriteRenderer:
   m_ObjectHideFlags: 0
