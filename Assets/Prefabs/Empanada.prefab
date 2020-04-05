@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 620423760899152875}
   - component: {fileID: 620423760899152874}
-  - component: {fileID: 620423760899152869}
   - component: {fileID: 620423760899152872}
   - component: {fileID: 620423760899152873}
   m_Layer: 0
@@ -70,8 +69,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -347516059
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 3377851306596656404, guid: 8c21f550e370bdd45ace5b8ceeb14236,
     type: 3}
@@ -85,22 +84,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &620423760899152869
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 620423760899152868}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: d1ded0c6f9fa05444b5d1248ee37b54f, type: 2}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.1
 --- !u!50 &620423760899152872
 Rigidbody2D:
   serializedVersion: 4
@@ -113,7 +96,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
