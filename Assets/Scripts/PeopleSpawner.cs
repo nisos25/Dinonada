@@ -6,7 +6,7 @@ public class PeopleSpawner: MonoBehaviour
 {
     [SerializeField]
     float secondsToSpawn;
-    [SerializeField]
+
     Vector2 spawnPositions;
     /// <summary>
     /// La posición en Y del spawner
@@ -48,7 +48,12 @@ public class PeopleSpawner: MonoBehaviour
     {
         int[] ran = { -1, 1 };
         int ranPeople = Random.Range(0,people.Length); 
-        Instantiate(people[ranPeople],new Vector2(xPositions[Random.Range(0,xPositions.Length)],0),Quaternion.identity);
+        Instantiate(people[ranPeople],
+            new Vector2(xPositions[Random.Range(0,
+                        xPositions.Length)],
+                        Random.Range(-2,2))
+                        ,Quaternion.identity
+            );
         yield return new WaitForSeconds(secondsToSpawn);
         StartCoroutine(Spawn());
     }

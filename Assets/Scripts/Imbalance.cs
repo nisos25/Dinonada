@@ -8,12 +8,12 @@ public class Imbalance : MonoBehaviour
     /// Factor de multiplicación a la rotación
     /// </summary>
     [SerializeField]
-    private float stableSpeed;
+    private float stableSpeed=0;
     /// <summary>
     /// Tiempo que demora el sistema en calcular un nuevo número de rotación
     /// </summary>
     [SerializeField]
-    private float stableTime;
+    private float stableTime=0;
     /// <summary>
     /// Ángulos máximos en los que puede rotar el plato
     /// </summary>
@@ -23,17 +23,20 @@ public class Imbalance : MonoBehaviour
     /// Sensibilidad entre la que e calcula el nuevo número a rotar
     /// </summary>
     [SerializeField]
-    private float randRangeRotation;
+    private float randRangeRotation=0;
 
     private float yMov;
 
     //private float inactiveTime;
 
 
-
     private void Start()
     {
         StartCoroutine(ChangeValueRotation());
+        if(AccesibilityModel.slowMode)
+        {
+            stableSpeed = 0.5f;
+        }
     }
 
     private void Update()
