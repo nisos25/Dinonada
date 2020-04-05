@@ -8,9 +8,13 @@ public class Imbalance : MonoBehaviour
     private float stableSpeed;
     [SerializeField]
     private float stableTime;
+    [SerializeField]
+    private int maxAngle;
 
     private float yMov;
     private float inactiveTime;
+
+
 
     private void Start()
     {
@@ -19,10 +23,9 @@ public class Imbalance : MonoBehaviour
 
     private void Update()
     {
-        //transform.Rotate(0, 0, yMov);
         float zRot = transform.eulerAngles.z;
         zRot = zRot > 180 ? zRot - 360 : zRot;
-        zRot = Mathf.Clamp(zRot, -45, 45);
+        zRot = Mathf.Clamp(zRot, -maxAngle, maxAngle);
         transform.eulerAngles = Vector3.forward * zRot;
 
         transform.Rotate(0, 0, yMov + Input.GetAxis("Mouse Y"));
@@ -30,7 +33,6 @@ public class Imbalance : MonoBehaviour
         if(transform.eulerAngles.z == 0)
         {
             StopCoroutine(Estabilize());
-            //yMov = Random.Range(-1, 1);
             inactiveTime = Time.time;
         }
         else
@@ -44,10 +46,8 @@ public class Imbalance : MonoBehaviour
 
     IEnumerator Estabilize()
     {
-
         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, 0), stableSpeed * Time.deltaTime);
         yield return null;
-
     }
 
     IEnumerator ChangeValueRotation()
