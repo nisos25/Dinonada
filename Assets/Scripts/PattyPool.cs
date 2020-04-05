@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PattyPool : MonoBehaviour
@@ -6,6 +7,13 @@ public class PattyPool : MonoBehaviour
     [SerializeField] private Queue<GameObject> pattyPool = new Queue<GameObject>();
     [SerializeField] private GameObject patty;
     [SerializeField] private int poolSize;
+
+    public static PattyPool Instance;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void Start()
     {
@@ -19,7 +27,7 @@ public class PattyPool : MonoBehaviour
         Debug.Log(pattyPool.Count);   
     }
 
-    public void SpawnPatty(Vector2 position)
+    public GameObject SpawnPatty(Vector2 position)
     {
         GameObject pattyToSpawn = pattyPool.Dequeue();
         
@@ -27,5 +35,7 @@ public class PattyPool : MonoBehaviour
         pattyToSpawn.transform.position = position;
         
         pattyPool.Enqueue(pattyToSpawn);
+
+        return pattyToSpawn;
     }
 }
