@@ -4,17 +4,30 @@ using UnityEngine;
 
 public class Imbalance : MonoBehaviour
 {
+    /// <summary>
+    /// Factor de multiplicación a la rotación
+    /// </summary>
     [SerializeField]
     private float stableSpeed;
+    /// <summary>
+    /// Tiempo que demora el sistema en calcular un nuevo número de rotación
+    /// </summary>
     [SerializeField]
     private float stableTime;
+    /// <summary>
+    /// Ángulos máximos en los que puede rotar el plato
+    /// </summary>
     [SerializeField]
     private int maxAngle=0;
+    /// <summary>
+    /// Sensibilidad entre la que e calcula el nuevo número a rotar
+    /// </summary>
     [SerializeField]
     private float randRangeRotation;
 
     private float yMov;
-    private float inactiveTime;
+
+    //private float inactiveTime;
 
 
 
@@ -30,20 +43,20 @@ public class Imbalance : MonoBehaviour
         zRot = Mathf.Clamp(zRot, -maxAngle, maxAngle);
         transform.eulerAngles = Vector3.forward * zRot;
 
-        transform.Rotate(0, 0, yMov + Input.GetAxis("Mouse X"));
+        transform.Rotate(0, 0, (yMov + Input.GetAxis("Mouse X"))*stableSpeed);
 
-        if(transform.eulerAngles.z == 0)
-        {
-            StopCoroutine(Estabilize());
-            inactiveTime = Time.time;
-        }
-        else
-        {
-            if(inactiveTime <= Time.time + 1)
-            {
-                //StartCoroutine(Estabilize());
-            }
-        }
+        //if(transform.eulerAngles.z == 0)
+        //{
+        //    StopCoroutine(Estabilize());
+        //    inactiveTime = Time.time;
+        //}
+        //else
+        //{
+        //    if(inactiveTime <= Time.time + 1)
+        //    {
+        //        //StartCoroutine(Estabilize());
+        //    }
+        //}
     }
 
     IEnumerator Estabilize()
