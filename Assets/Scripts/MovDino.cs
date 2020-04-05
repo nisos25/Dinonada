@@ -9,6 +9,9 @@ public class MovDino : MonoBehaviour
 
     [SerializeField]
     float movSpeed;
+
+    Vector2 pastPosition;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -28,6 +31,7 @@ public class MovDino : MonoBehaviour
         {
             ///entra el objeto a pantalla
             //collision.bounds.max.x;
+            pastPosition = transform.position;
         }
     }
 

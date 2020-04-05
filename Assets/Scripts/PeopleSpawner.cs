@@ -22,7 +22,7 @@ public class PeopleSpawner: MonoBehaviour
     [SerializeField]
     GameObject[] people;
 
-    // Start is called before the first frame update
+
     void Start()
     {
         spawnPositions = ScreenSize();
@@ -43,6 +43,7 @@ public class PeopleSpawner: MonoBehaviour
         int ranPeople = Random.Range(0,people.Length); 
         Instantiate(people[ranPeople],spawnPositions,Quaternion.identity);
         yield return new WaitForSeconds(secondsToSpawn);
+        StartCoroutine(Spawn());
     }
 
 }
