@@ -30,7 +30,7 @@ public class Imbalance : MonoBehaviour
         zRot = Mathf.Clamp(zRot, -maxAngle, maxAngle);
         transform.eulerAngles = Vector3.forward * zRot;
 
-        transform.Rotate(0, 0, yMov + Input.GetAxis("Mouse Y"));
+        transform.Rotate(0, 0, yMov + Input.GetAxis("Mouse X"));
 
         if(transform.eulerAngles.z == 0)
         {
