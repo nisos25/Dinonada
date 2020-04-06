@@ -34,7 +34,6 @@ public class PattyPool : MonoBehaviour
         pattyToSpawn.transform.position = position;
         pattyToSpawn.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         
-        pattyPool.Enqueue(pattyToSpawn);
 
         return pattyToSpawn;
     }
