@@ -26,6 +26,7 @@ public class Empanada : MonoBehaviour
         {
             GetComponent<SpriteRenderer>().sortingOrder = 0;
             Destroy(rb);
+            Destroy(GetComponent<CapsuleCollider2D>());
             audioSource.PlayOneShot(splat);
             transform.parent = null;
             Destroy(GetComponent<Empanada>());
