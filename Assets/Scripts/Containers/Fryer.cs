@@ -20,20 +20,23 @@ public class Fryer : Container
             smokeAnimator.SetBool("Burning",false);
         }
 
-        for (int i = 0; i < Empanadas.Count; i++)
+        if (Empanadas.Count == 0)
         {
-            EmpanadaContainer empanada = Empanadas.Peek();
-
-            if (empanada.State == EmpanadaState.Raw)
-            {
-                smokeAnimator.SetBool("isFrying",false);
-                fryPotAnimator.SetBool("isFrying",false);
-                return;
-            }
-            
+            smokeAnimator.SetBool("isFrying",false);
+            fryPotAnimator.SetBool("isFrying",false);
+        }
+        else if (Empanadas.Peek().State == EmpanadaState.Raw)
+        {
+            smokeAnimator.SetBool("isFrying",false);
+            fryPotAnimator.SetBool("isFrying",false);
+            return;
+        }
+        else
+        {
             smokeAnimator.SetBool("isFrying",true);
             fryPotAnimator.SetBool("isFrying",true);
         }
+
     }
 
     public override EmpanadaContainer Pickup(GameObject spawnPosition)
@@ -48,8 +51,7 @@ public class Fryer : Container
                 empanada.gameObject.SetActive(true);
                 empanada.GetComponent<SpriteRenderer>().enabled = true;
                 empanada.transform.position = spawnPosition.transform.position;
-                //StopCoroutine();
-                
+
                 if (burntEmpanadas.Contains(empanada))
                 {
                     burntEmpanadas.Remove(empanada);
