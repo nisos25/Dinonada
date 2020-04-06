@@ -59,7 +59,7 @@ public class MovDino : MonoBehaviour
         {
             inverted = true;
         }
-        transform.localScale = inverted ? new Vector3(1, 1, 1): new Vector3(-1, 1, 1);
+        transform.localScale = inverted ? new Vector3(.46f, .46f, .46f): new Vector3(-.46f, .46f,.46f);
         #endregion
     }
 
