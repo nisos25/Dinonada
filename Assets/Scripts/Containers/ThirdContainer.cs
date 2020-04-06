@@ -9,7 +9,7 @@ public class ThirdContainer : Container
         if (empanada == null || empanada.State == EmpanadaState.Raw) return;
         
         Empanadas.Enqueue(empanada);
-        empanada.gameObject.SetActive(false);
-        Debug.Log($"Número de empanadas cocinadas <color=red>{Empanadas.Count}</color>");
+        empanada.transform.position = transform.position;
+        empanada.gameObject.layer = 12;
     }
 }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8051562671095878642}
   - component: {fileID: 8051562671095878643}
   - component: {fileID: -2213334934617037324}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: EmpanadaCocinar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -134,3 +134,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef94c4edb5de47b408422cc1d4252136, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  raw: {fileID: 21300000, guid: 571b5da7aa019da4f993cbc7cff432d5, type: 3}
+  cooked: {fileID: 3377851306596656404, guid: 8c21f550e370bdd45ace5b8ceeb14236, type: 3}
+  burnt: {fileID: 5418870908414243870, guid: 8c21f550e370bdd45ace5b8ceeb14236, type: 3}
