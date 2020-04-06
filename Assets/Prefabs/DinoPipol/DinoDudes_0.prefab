@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 750729223781503326}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.8181443, y: -1.5928448, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.46, y: 0.46, z: 0.46}
   m_Children:
   - {fileID: 3846965579717522068}
   m_Father: {fileID: 0}
@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b06db7443f4ec194f8b62993c26d3c73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2.5
+  speed: 1.15
   facingRight: 0
   timepoInteresado: 0
   cantidadEmpanadas: 0

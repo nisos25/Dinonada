@@ -40,7 +40,7 @@ public class PeopleObject : MonoBehaviour
         if(special)
         {
             cantidadEmpanadas = 5;
-            speed = 4;
+            speed = 4 *.46f;
             ///sonido especial
         }
         else
