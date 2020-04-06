@@ -19,6 +19,9 @@ public class PeopleObject : MonoBehaviour
     private AudioClip coin;
     [SerializeField]
     private AudioClip caching;
+    [SerializeField]
+    private GameObject moneyEffect;
+
 
     public bool special;
 
@@ -75,7 +78,7 @@ public class PeopleObject : MonoBehaviour
     void ReduceEmpanadasQuantity()
     {
         cantidadEmpanadas--;
-        ///sonido moneda
+        Instantiate(moneyEffect,transform);
         audioSource.PlayOneShot(coin);
         if(cantidadEmpanadas <= 0)
         {

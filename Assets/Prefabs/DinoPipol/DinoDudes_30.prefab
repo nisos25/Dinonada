@@ -163,6 +163,8 @@ MonoBehaviour:
   pensamiento: {fileID: 0}
   coin: {fileID: 8300000, guid: f6f2b6e207ab7f34e8d863bc1d8217be, type: 3}
   caching: {fileID: 8300000, guid: a517ddbcfd991ac49af2a88505607bdb, type: 3}
+  moneyEffect: {fileID: 6381531595330005704, guid: 225913a69ebad484db8926279f4d31a8,
+    type: 3}
   special: 0
 --- !u!82 &3062221620188660356
 AudioSource:
