@@ -35,7 +35,7 @@ public class Imbalance : MonoBehaviour
         StartCoroutine(ChangeValueRotation());
         if(AccesibilityModel.slowMode)
         {
-            stableSpeed = 0.5f;
+            stableSpeed = 0.3f;
         }
     }
 
