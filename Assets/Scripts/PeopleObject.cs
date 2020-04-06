@@ -27,7 +27,7 @@ public class PeopleObject : MonoBehaviour
     void Start()
     {
         Random.InitState(System.DateTime.Now.Millisecond);
-
+        audioSource = GetComponent<AudioSource>();
         pensamiento = transform.GetChild(0).gameObject;
         facingRight = transform.position.x < 0 ? true : false;
         GetComponent<SpriteRenderer>().flipX = facingRight;
