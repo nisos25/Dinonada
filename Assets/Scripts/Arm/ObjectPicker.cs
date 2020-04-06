@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -9,7 +10,9 @@ public class ObjectPicker : MonoBehaviour
     [SerializeField] private GameObject pattySpawnPosition;
     
     private bool armsClosed;
-
+    private List<EmpanadaContainer> empanadas = new List<EmpanadaContainer>();
+    private Container container;
+    
     private void Update()
     {
         if (Input.GetMouseButton(0))
@@ -29,6 +32,16 @@ public class ObjectPicker : MonoBehaviour
         armsClosed = false;
         OpenArm(rightArm);
         OpenArm(leftArm);
+
+        if (container != null)
+        {
+            foreach (var empanada in empanadas)
+            {
+                container.DropPatty(empanada);
+            }
+        }
+        
+        empanadas.Clear();
     }
     
     private void CloseArms()
@@ -38,10 +51,13 @@ public class ObjectPicker : MonoBehaviour
         armsClosed = true;
         CloseArm(rightArm);
         CloseArm(leftArm);
-        
-        for (int i = 0; i < Random.Range(4,7); i++)
+
+        if (container != null)
         {
-            PattyPool.Instance.SpawnPatty(pattySpawnPosition.transform.position);
+            for (int i = 0; i < container.Iterator; i++)
+            {
+                empanadas.Add(container.Pickup(pattySpawnPosition));
+            }
         }
     }
 
@@ -61,6 +77,37 @@ public class ObjectPicker : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        container = other.GetComponent<Container>();
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.GetComponent<Container>())
+        {
+            container = null;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        EmpanadaContainer empanadaContainer = other.gameObject.GetComponent<EmpanadaContainer>();
         
+        if (empanadaContainer != null && armsClosed)
+        {
+            if (!empanadas.Contains(empanadaContainer))
+            {
+                empanadas.Add(empanadaContainer);
+            }
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        EmpanadaContainer empanadaContainer = other.gameObject.GetComponent<EmpanadaContainer>();
+        
+        if (empanadaContainer != null)
+        {
+            empanadas.Remove(empanadaContainer);
+        }
     }
 }
