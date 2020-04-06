@@ -10,6 +10,7 @@ public class AccesibilyMenu : MonoBehaviour
     private void Update()
     {
         Camera.main.GetComponent<ColorBlindFilter>().mode = (ColorBlindMode)filterMode.value;
+        AccesibilityModel.filter = filterMode.value;
     }
 
 
