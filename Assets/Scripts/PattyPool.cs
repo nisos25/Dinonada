@@ -24,7 +24,6 @@ public class PattyPool : MonoBehaviour
             pattyPool.Enqueue(spawnedPatty);
             spawnedPatty.SetActive(false);
         }
-        Debug.Log(pattyPool.Count);   
     }
 
     public GameObject SpawnPatty(Vector2 position)
@@ -33,6 +32,7 @@ public class PattyPool : MonoBehaviour
         
         pattyToSpawn.SetActive(true);
         pattyToSpawn.transform.position = position;
+        pattyToSpawn.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         
         pattyPool.Enqueue(pattyToSpawn);
 

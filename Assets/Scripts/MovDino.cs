@@ -43,7 +43,7 @@ public class MovDino : MonoBehaviour
         }
         else
         {
-            if(Mathf.Abs(rb.velocity.x) <= 0)
+            if(Mathf.Abs(rb.velocity.magnitude) <= 0)
             {
                 audioSource.Stop();
                 isPlayingSound = false;
