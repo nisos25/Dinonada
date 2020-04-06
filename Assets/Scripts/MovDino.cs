@@ -6,6 +6,8 @@ public class MovDino : MonoBehaviour
 {
     Animator anim;
     Rigidbody2D rb;
+    AudioSource audioSource;
+
     Vector2 mov=Vector2.zero;
 
     [SerializeField]
@@ -15,21 +17,41 @@ public class MovDino : MonoBehaviour
 
     Vector2 pastPosition;
 
+    bool isPlayingSound;
+
     void Start()
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>();
         rb.gravityScale = 0;
     }
 
 
     void FixedUpdate()
     {
+        #region RbMovimiento
         mov = new Vector2 (Input.GetAxis("Horizontal"),Input.GetAxis("Vertical"));
         rb.velocity = mov*movSpeed;
-        anim.SetFloat("vel",Mathf.Abs(rb.velocity.x));
-
-        //inverted=rb.velocity.x > 0 ? false : true;
+        anim.SetFloat("vel",Mathf.Abs(rb.velocity.magnitude));
+        #endregion
+        #region AudioSteps
+        if(!isPlayingSound && Mathf.Abs(rb.velocity.magnitude) > 0)
+        {
+            audioSource.Play();
+            isPlayingSound = true;
+        }
+        else
+        {
+            if(Mathf.Abs(rb.velocity.x) <= 0)
+            {
+                audioSource.Stop();
+                isPlayingSound = false;
+            }
+            
+        }
+        #endregion
+        #region Inverted
         if(rb.velocity.x > 0)
         {
             inverted = false;
@@ -38,6 +60,7 @@ public class MovDino : MonoBehaviour
             inverted = true;
         }
         transform.localScale = inverted ? new Vector3(1, 1, 1): new Vector3(-1, 1, 1);
+        #endregion
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
