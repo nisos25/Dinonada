@@ -54,7 +54,7 @@ public class ObjectPicker : MonoBehaviour
 
         if (container != null)
         {
-            for (int i = 0; i < container.Iterator; i++)
+            for (int i = 0; i <= container.Iterator; i++)
             {
                 empanadas.Add(container.Pickup(pattySpawnPosition));
             }

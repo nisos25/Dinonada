@@ -9,14 +9,27 @@ public class Fryer : Container
     
     public override EmpanadaContainer Pickup(GameObject spawnPosition)
     {
-        EmpanadaContainer empanada = Empanadas.Dequeue();
-        empanada.GetComponent<SpriteRenderer>().enabled = true;
-        empanada.gameObject.SetActive(true);
-        return empanada;
+        for (int i = 0; i < Empanadas.Count; i++)
+        {
+            EmpanadaContainer empanada = Empanadas.Peek();
+            if (empanada.State != EmpanadaState.Raw)
+            {
+                Empanadas.Dequeue();
+                empanada.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                empanada.gameObject.SetActive(true);
+                empanada.GetComponent<SpriteRenderer>().enabled = true;
+                empanada.transform.position = spawnPosition.transform.position;
+                StopAllCoroutines();
+                return empanada;
+            }    
+        }
+        return null;
     }
     
     public override void DropPatty(EmpanadaContainer empanada)
     {
+        if (empanada == null) return;
+        
         Empanadas.Enqueue(empanada);
         empanada.GetComponent<SpriteRenderer>().enabled = false;
         StartCoroutine(Fry(empanada));
