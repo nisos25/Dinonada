@@ -136,6 +136,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   splat: {fileID: 8300000, guid: d3c1e426b8986e54a81fde704bda55a9, type: 3}
+  splatEffect: {fileID: 1960479238982454905, guid: 5cd10304032a0b045806b7e099318d87,
+    type: 3}
 --- !u!82 &-6964254865047219420
 AudioSource:
   m_ObjectHideFlags: 0

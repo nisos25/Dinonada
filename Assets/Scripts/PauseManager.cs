@@ -8,12 +8,17 @@ public class PauseManager : MonoBehaviour
     [SerializeField] private GameObject pauseImage;
     [SerializeField] private GameObject settingsImage;
 	[SerializeField] CanvasGroup CanvasGroup;
+    [SerializeField] private AudioClip pauseIN;
+    [SerializeField] private AudioClip pauseOut;
     private bool paused;
+    private AudioSource audioSource;
+
 
 	void Start()
 	{
 		pauseCanvas.enabled =false;
 		CanvasGroup.interactable = false;
+        audioSource = GetComponent<AudioSource>();
 	}
 
 	private void Update()
@@ -29,8 +34,9 @@ public class PauseManager : MonoBehaviour
     {
         pauseCanvas.enabled = !pauseCanvas.enabled;
 		CanvasGroup.interactable = pauseCanvas.enabled;
-
-		Time.timeScale = Time.timeScale == 1 ? 0 : 1;
+        AudioClip cosito = Time.timeScale == 1 ? pauseOut : pauseIN;
+        audioSource.PlayOneShot(cosito);
+        Time.timeScale = Time.timeScale == 1 ? 0 : 1;
     }
 
     public void LoadSettings()

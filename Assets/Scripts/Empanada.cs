@@ -11,6 +11,8 @@ public class Empanada : MonoBehaviour
 
     [SerializeField]
     AudioClip splat;
+    [SerializeField]
+    GameObject splatEffect;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,11 +26,12 @@ public class Empanada : MonoBehaviour
     {
         if(transform.position.y < parent.position.y-0.5f)
         {
-            GetComponent<SpriteRenderer>().sortingOrder = 0;
+            GetComponent<SpriteRenderer>().sortingOrder = -1;
             Destroy(rb);
             Destroy(GetComponent<CapsuleCollider2D>());
             audioSource.PlayOneShot(splat);
             transform.parent = null;
+            Instantiate(splatEffect,transform.position,Quaternion.identity);
             Destroy(GetComponent<Empanada>());
         }
     }
