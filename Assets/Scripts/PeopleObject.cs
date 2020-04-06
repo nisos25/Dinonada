@@ -15,11 +15,15 @@ public class PeopleObject : MonoBehaviour
     private int cantidadEmpanadas;
     [SerializeField]
     private GameObject pensamiento;
+    [SerializeField]
+    private AudioClip coin;
+    [SerializeField]
+    private AudioClip caching;
 
     public bool special;
 
     private Rigidbody2D rb;
-
+    private AudioSource audioSource;
     void Start()
     {
         Random.InitState(System.DateTime.Now.Millisecond);
@@ -72,16 +76,18 @@ public class PeopleObject : MonoBehaviour
     {
         cantidadEmpanadas--;
         ///sonido moneda
+        audioSource.PlayOneShot(coin);
         if(cantidadEmpanadas <= 0)
         {
             ///Sonido caching
+            audioSource.PlayOneShot(caching);
             DeactivateInterestInEmpanadas();
         }
     }
 
     void RandomParameters()
     {
-        cantidadEmpanadas = Random.Range(0,3);
+        cantidadEmpanadas = Random.Range(0,4);
         //speed += Random.Range(-1,1);
         if(cantidadEmpanadas > 0)
         {
