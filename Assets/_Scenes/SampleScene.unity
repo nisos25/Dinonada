@@ -131,7 +131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 13762910}
   - component: {fileID: 13762911}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RightArmGraphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -213,7 +213,7 @@ GameObject:
   m_Component:
   - component: {fileID: 45880635}
   - component: {fileID: 45880636}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RightArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -275,7 +275,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 79923974}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.88, z: 0}
+  m_LocalPosition: {x: 0, y: 1.95, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 875923828}
@@ -292,7 +292,8 @@ GameObject:
   - component: {fileID: 201517701}
   - component: {fileID: 201517702}
   - component: {fileID: 201517703}
-  m_Layer: 0
+  - component: {fileID: 201517704}
+  m_Layer: 9
   m_Name: Container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -389,6 +390,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.64, y: 0.64}
   m_EdgeRadius: 0
+--- !u!114 &201517704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 201517700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26c07ab52cba01d4eaa427a17eb4d66e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &226394546
 GameObject:
   m_ObjectHideFlags: 0
@@ -400,7 +413,8 @@ GameObject:
   - component: {fileID: 226394547}
   - component: {fileID: 226394550}
   - component: {fileID: 226394548}
-  m_Layer: 0
+  - component: {fileID: 226394549}
+  m_Layer: 9
   m_Name: Container (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -447,6 +461,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.64, y: 0.64}
   m_EdgeRadius: 0
+--- !u!114 &226394549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 226394546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f745241c513f450419844df17ee21f92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &226394550
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -526,7 +552,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7defb5f7ec71a364c94fec08b2268a90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  patty: {fileID: 620423760899152868, guid: 32f57ecb4f99ade428a5f35949134d31, type: 3}
+  patty: {fileID: 8051562671095878654, guid: 822a16d4356cebf48acd60db300eb5ae, type: 3}
   poolSize: 20
 --- !u!4 &271859358
 Transform:
@@ -552,7 +578,7 @@ GameObject:
   m_Component:
   - component: {fileID: 349898721}
   - component: {fileID: 349898722}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 'LeftArmGraphics '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -718,7 +744,8 @@ GameObject:
   - component: {fileID: 830187159}
   - component: {fileID: 830187160}
   - component: {fileID: 830187161}
-  m_Layer: 0
+  - component: {fileID: 830187162}
+  m_Layer: 9
   m_Name: Fryer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -815,6 +842,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.64, y: 0.64}
   m_EdgeRadius: 0
+--- !u!114 &830187162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830187158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76dca02654b8239468ff174194675c66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cookTime: 10
+  burntOutTime: 4
 --- !u!1 &875923825
 GameObject:
   m_ObjectHideFlags: 0
@@ -827,7 +868,8 @@ GameObject:
   - component: {fileID: 875923827}
   - component: {fileID: 875923826}
   - component: {fileID: 875923829}
-  m_Layer: 0
+  - component: {fileID: 875923830}
+  m_Layer: 10
   m_Name: Arms
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -846,7 +888,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5864fb7d098aa974396c799162cdb957, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  armVelocity: 50
+  armVelocity: 100
 --- !u!50 &875923827
 Rigidbody2D:
   serializedVersion: 4
@@ -900,6 +942,32 @@ MonoBehaviour:
   rightArm: {fileID: 45880635}
   leftArm: {fileID: 945264102}
   pattySpawnPosition: {fileID: 79923974}
+--- !u!61 &875923830
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875923825}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 1.14}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.08, y: 0.06}
+  m_EdgeRadius: 0
 --- !u!1 &945264101
 GameObject:
   m_ObjectHideFlags: 0
@@ -910,7 +978,7 @@ GameObject:
   m_Component:
   - component: {fileID: 945264102}
   - component: {fileID: 945264103}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeftArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -12,6 +12,7 @@ public class ObjectPicker : MonoBehaviour
     private bool armsClosed;
     private List<EmpanadaContainer> empanadas = new List<EmpanadaContainer>();
     private Container container;
+    private bool used;
     
     private void Update()
     {
@@ -35,10 +36,13 @@ public class ObjectPicker : MonoBehaviour
 
         if (container != null)
         {
+            used = true;
             foreach (var empanada in empanadas)
             {
                 container.DropPatty(empanada);
             }
+
+            used = false;
         }
         
         empanadas.Clear();
@@ -54,7 +58,8 @@ public class ObjectPicker : MonoBehaviour
 
         if (container != null)
         {
-            for (int i = 0; i <= container.Iterator; i++)
+            int iterator = container.Iterator;
+            for (int i = 0; i < iterator; i++)
             {
                 empanadas.Add(container.Pickup(pattySpawnPosition));
             }
@@ -105,7 +110,7 @@ public class ObjectPicker : MonoBehaviour
     {
         EmpanadaContainer empanadaContainer = other.gameObject.GetComponent<EmpanadaContainer>();
         
-        if (empanadaContainer != null)
+        if (empanadaContainer != null && !used)
         {
             empanadas.Remove(empanadaContainer);
         }
