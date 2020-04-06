@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2365472050441389278
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2365472050441389279}
+  - component: {fileID: 2365472050441389272}
+  m_Layer: 0
+  m_Name: ---------Pipol Spawner-----------
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2365472050441389279
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2365472050441389278}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2365472050441389272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2365472050441389278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7bdf263059899d4484f48bb76cc0748, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  secondsToSpawn: 2
+  yPos: 0
+  ySensib: 0
+  people:
+  - {fileID: 750729223781503326, guid: 74aa693ea56546248a5c57a31cf0b0fe, type: 3}
+  - {fileID: 291648923417023841, guid: 48263cc305730364faa04f4bd5392c6e, type: 3}
+  - {fileID: 1615260963440911556, guid: 590b2ea3624996e458f384b70db193b9, type: 3}
+  - {fileID: 7588376626051022714, guid: f32d4468733fb99449177a395c20f4b6, type: 3}
+  - {fileID: 4280723590103892315, guid: 5189e8646bb9e614f862a2d7296d9468, type: 3}
+  - {fileID: 8935154513347459805, guid: c7fed68c3361b9a4f95d84916a1d9fd4, type: 3}
+  - {fileID: 1057448855902663581, guid: 026f3c7d6b8124546af41d7d5c343f37, type: 3}
+  - {fileID: 2139521831854529771, guid: 674d95c25e6cf514281549b48d9fca19, type: 3}
+  - {fileID: 2436272083036040031, guid: aefdbb42a14fd22449aab34fd92ccbda, type: 3}
