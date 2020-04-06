@@ -196,7 +196,7 @@ PrefabInstance:
     - target: {fileID: 6314635208146746524, guid: 450d6d83d8e7aeb45b6fcbddc6358515,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 450d6d83d8e7aeb45b6fcbddc6358515, type: 3}
@@ -325,13 +325,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TextoPersonaje: {fileID: 1600443680}
   dialogos:
-  - mensajes: Lo siento...
-  - mensajes: "El d\xEDa de hoy cerraron el zool\xF3gico"
-  - mensajes: No podemos permitirnos tener tantos empleados
-  - mensajes: Esperamos entiendas
-  - mensajes: Siempre se puede vender empanadas...
-  - mensajes: "\xBFNo?"
+  - mensajes: Creo que te debo una disculpa
+  - mensajes: "Empanadas, \xBFqui\xE9n lo dir\xEDa?"
+  - mensajes: "No hab\xEDa visto tantas ventas desde el gel antibacterial"
+  - mensajes: Debo admitirlo, hay un gran negocio...
+  - mensajes: "De pronto ... \xBFTienes empleo para mi?"
+  - mensajes: "*Risa nerviosa* \xBFNo?"
   cortinas: {fileID: 184582448}
+--- !u!114 &517083979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 517083977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eb864c900afd2040a84c6cd76244394, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &797939541
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -633,9 +645,9 @@ MonoBehaviour:
   m_fontSize: 28
   m_fontSizeBase: 28
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 10
+  m_fontSizeMax: 28
   m_fontStyle: 0
   m_textAlignment: 514
   m_characterSpacing: 0
@@ -668,7 +680,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 15, y: 0, z: 15, w: 0}
+  m_margin: {x: 65, y: 20, z: 65, w: 20}
   m_textInfo:
     textComponent: {fileID: 1600443680}
     characterCount: 0
