@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class SelectedEndScene : MonoBehaviour
 {
+    public bool state;
+
    private void Start()
     {
-        GetComponent<Animator>().SetTrigger("happy");
+        if(!state)GetComponent<Animator>().SetTrigger("happy");
+        else GetComponent<Animator>().SetTrigger("sad");
     }
 }
