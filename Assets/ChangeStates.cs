@@ -66,4 +66,6 @@ public class ChangeStates : MonoBehaviour
             yield return null;
         }
     }
+    
+    private void Invert
 }
