@@ -74,7 +74,7 @@ public class PeopleObject : MonoBehaviour
                 ReduceEmpanadasQuantity();
                 movDino = GameObject.Find("GameManager").GetComponent<ChangeStates>();
                 movDino.Money += 1;
-                moneyM.transform.position += new Vector3(0,0.019f,0);
+                moneyM.transform.position += new Vector3(0,0.0475f,0);
             }
         }
     }

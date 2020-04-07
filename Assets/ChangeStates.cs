@@ -45,7 +45,7 @@ public class ChangeStates : MonoBehaviour
         
         if (timerToFinish <= 0)
         {
-            if (Money >= 100)
+            if (Money >= 40)
             {
                 SceneManager.LoadScene("EndGood");
             }
