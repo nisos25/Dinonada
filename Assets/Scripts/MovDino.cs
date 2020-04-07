@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
@@ -18,7 +19,7 @@ public class MovDino : MonoBehaviour
     Vector2 pastPosition;
 
     bool isPlayingSound;
-
+    
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -30,8 +31,11 @@ public class MovDino : MonoBehaviour
 
     void FixedUpdate()
     {
+        float h = Input.GetAxis("Horizontal");
+        float v = Input.GetAxis("Vertical");
+        
         #region RbMovimiento
-        mov = new Vector2 (Input.GetAxis("Horizontal"),Input.GetAxis("Vertical"));
+        mov = new Vector2 (h,v);
         rb.velocity = mov*movSpeed;
         anim.SetFloat("vel",Mathf.Abs(rb.velocity.magnitude));
         #endregion
@@ -71,6 +75,7 @@ public class MovDino : MonoBehaviour
             //collision.bounds.max.x;
             pastPosition = transform.position;
         }
+
     }
 
     private void OnTriggerExit2D(Collider2D collision)
