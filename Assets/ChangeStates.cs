@@ -24,6 +24,13 @@ public class ChangeStates : MonoBehaviour
 
     public int Money { get; set; }
 
+    private void Awake()
+    {
+        cookingArms = GameObject.Find("Arms");
+        dino = GameObject.Find("Dinosauria 1");
+        container = GameObject.Find("Container (2)").GetComponent<ThirdContainer>();
+    }
+
     private void FixedUpdate()
     {
         timerToFinish -= 0.02f;
