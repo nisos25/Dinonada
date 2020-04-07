@@ -21,14 +21,16 @@ public class PeopleObject : MonoBehaviour
     private AudioClip caching;
     [SerializeField]
     private GameObject moneyEffect;
-
-
+        
     public bool special;
 
+    private ChangeStates movDino;
+    private GameObject moneyM;
     private Rigidbody2D rb;
     private AudioSource audioSource;
     void Start()
     {
+        moneyM = GameObject.Find("money");
         Random.InitState(System.DateTime.Now.Millisecond);
         audioSource = GetComponent<AudioSource>();
         pensamiento = transform.GetChild(0).gameObject;
@@ -70,7 +72,9 @@ public class PeopleObject : MonoBehaviour
             {
                 Destroy(collision.gameObject);
                 ReduceEmpanadasQuantity();
-                ///Vender
+                movDino = GameObject.Find("GameManager").GetComponent<ChangeStates>();
+                movDino.Money += 1;
+                moneyM.transform.position += new Vector3(0,0.019f,0);
             }
         }
     }

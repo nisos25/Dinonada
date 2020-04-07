@@ -1,6 +1,7 @@
 ﻿using System;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 enum GameState
 {
@@ -15,13 +16,17 @@ public class ChangeStates : MonoBehaviour
     [SerializeField] private GameObject dino;
     [SerializeField] private ThirdContainer container;
     [SerializeField] private GameObject empanadaPrefab;
-    
+    [SerializeField]private float timerToFinish;
+
     private GameState gameState = GameState.Cooking;
     private Transform plate;
     private float timer = 1.5f;
 
+    public int Money { get; set; } = 95;
+
     private void FixedUpdate()
     {
+        timerToFinish -= 0.02f;
         timer -= Time.deltaTime;
         float vertical = Input.GetAxisRaw("Vertical");
         
@@ -38,6 +43,17 @@ public class ChangeStates : MonoBehaviour
             ChangeGameState();
         }
         
+        if (timerToFinish <= 0)
+        {
+            if (Money >= 100)
+            {
+                SceneManager.LoadScene("EndGood");
+            }
+            else
+            {
+                SceneManager.LoadScene("EndBad");
+            }
+        }
     }
     
     private void ChangeGameState()

@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 [RequireComponent(typeof(Rigidbody2D))]
 public class MovDino : MonoBehaviour
 {
@@ -19,8 +21,7 @@ public class MovDino : MonoBehaviour
     Vector2 pastPosition;
 
     bool isPlayingSound;
-
-    public int Money { get; set; }
+    
 
     void Start()
     {
