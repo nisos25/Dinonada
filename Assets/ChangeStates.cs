@@ -22,7 +22,7 @@ public class ChangeStates : MonoBehaviour
     private Transform plate;
     private float timer = 1.5f;
 
-    public int Money { get; set; } = 95;
+    public int Money { get; set; }
 
     private void FixedUpdate()
     {
