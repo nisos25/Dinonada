@@ -18,6 +18,9 @@ public class ChangeStates : MonoBehaviour
     private ObjectPicker objectPicker;
     private ArmMovement armMovement;
     private Rigidbody2D armsRigidbody;
+    private MovDino movDino;
+    private Imbalance imbalance;
+
     private GameState gameState = GameState.Cooking;
 
     private void Awake()
@@ -25,6 +28,9 @@ public class ChangeStates : MonoBehaviour
         armsRigidbody = cookingArms.GetComponent<Rigidbody2D>();
         armMovement = cookingArms.GetComponent<ArmMovement>();
         objectPicker = cookingArms.GetComponent<ObjectPicker>();
+
+        movDino = dino.GetComponent<MovDino>();
+        imbalance = dino.GetComponentInChildren<Imbalance>();
     }
 
     private void FixedUpdate()
@@ -66,6 +72,9 @@ public class ChangeStates : MonoBehaviour
             yield return null;
         }
     }
-    
-    private void Invert
+
+    private void InvertDinoState()
+    {
+        
+    }
 }
