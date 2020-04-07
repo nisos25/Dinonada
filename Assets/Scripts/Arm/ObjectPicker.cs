@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using Random = UnityEngine.Random;
 
 public class ObjectPicker : MonoBehaviour
@@ -18,7 +19,10 @@ public class ObjectPicker : MonoBehaviour
     {
         if (Input.GetMouseButton(0))
         {
-            CloseArms();
+            if (!EventSystem.current.IsPointerOverGameObject())
+            {
+                CloseArms();    
+            }
         }
         else
         {

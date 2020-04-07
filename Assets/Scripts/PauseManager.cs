@@ -17,7 +17,7 @@ public class PauseManager : MonoBehaviour
 	void Start()
 	{
 		pauseCanvas.enabled =false;
-		CanvasGroup.interactable = false;
+		//CanvasGroup.interactable = false;
         audioSource = GetComponent<AudioSource>();
 	}
 
@@ -33,7 +33,7 @@ public class PauseManager : MonoBehaviour
     public void Pause()
     {
         pauseCanvas.enabled = !pauseCanvas.enabled;
-		CanvasGroup.interactable = pauseCanvas.enabled;
+		//CanvasGroup.interactable = pauseCanvas.enabled;
         AudioClip cosito = Time.timeScale == 1 ? pauseOut : pauseIN;
         audioSource.PlayOneShot(cosito);
         Time.timeScale = Time.timeScale == 1 ? 0 : 1;
@@ -48,7 +48,7 @@ public class PauseManager : MonoBehaviour
     public void LoadPause()
     {
         pauseImage.SetActive(true);
-        settingsImage.SetActive(false);
+        //settingsImage.SetActive(false);
     }
 
     public void LoadMenu()
