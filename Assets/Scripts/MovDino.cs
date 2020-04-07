@@ -19,7 +19,9 @@ public class MovDino : MonoBehaviour
     Vector2 pastPosition;
 
     bool isPlayingSound;
-    
+
+    public int Money { get; set; }
+
     void Start()
     {
         anim = GetComponent<Animator>();

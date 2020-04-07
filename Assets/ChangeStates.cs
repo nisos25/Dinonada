@@ -13,28 +13,13 @@ public class ChangeStates : MonoBehaviour
 {
     [SerializeField] private GameObject cookingArms;
     [SerializeField] private GameObject dino;
+    [SerializeField] private ThirdContainer container;
+    [SerializeField] private GameObject empanadaPrefab;
     
-    private ObjectPicker objectPicker;
-    private ArmMovement armMovement;
-    private Rigidbody2D armsRigidbody;
-    private MovDino movDino;
-    private Imbalance imbalance;
-    private Animator dinoAnimator;
     private GameState gameState = GameState.Cooking;
-
+    private Transform plate;
     private float timer = 1.5f;
-    
-    private void Awake()
-    {
-        armsRigidbody = cookingArms.GetComponent<Rigidbody2D>();
-        armMovement = cookingArms.GetComponent<ArmMovement>();
-        objectPicker = cookingArms.GetComponent<ObjectPicker>();
 
-        movDino = dino.GetComponent<MovDino>();
-        imbalance = dino.GetComponentInChildren<Imbalance>();
-        dinoAnimator = dino.GetComponent<Animator>();
-    }
-    
     private void FixedUpdate()
     {
         timer -= Time.deltaTime;
@@ -46,10 +31,10 @@ public class ChangeStates : MonoBehaviour
             ChangeGameState();
         }
 
-        if (dino.transform.position.y < -2 && timer <= 0)
+        if (dino.transform.position.y < -2 && !cookingArms.activeSelf)
         {
             gameState = GameState.Cooking;
-            timer -= 1.5f;
+            timer = 1.5f;
             ChangeGameState();
         }
         
@@ -63,6 +48,7 @@ public class ChangeStates : MonoBehaviour
             dino.SetActive(true);
             GameObject.Find("plate").transform.rotation = quaternion.identity;
             dino.transform.position = new Vector3(dino.transform.position.x,-1.7f, dino.transform.position.z);
+            InstantiateEmpanadas();
         }
 
         if (gameState == GameState.Cooking)
@@ -72,10 +58,16 @@ public class ChangeStates : MonoBehaviour
         }
     }
 
-    private void InvertArmsState()
+    private void InstantiateEmpanadas()
     {
-        armMovement.enabled = !armMovement.enabled;
-        objectPicker.enabled = !objectPicker.enabled;
-        armsRigidbody.isKinematic = !armsRigidbody.isKinematic;
+        plate = GameObject.Find("plate").GetComponent<Transform>();
+        int empanadas = container.Empanadas.Count < 10 ? container.Empanadas.Count : 9;
+        
+        container.Clean(empanadas);
+
+        for (int i = 0; i < empanadas; i++)
+        {
+            Instantiate(empanadaPrefab,plate.position,quaternion.identity, plate);
+        }
     }
 }

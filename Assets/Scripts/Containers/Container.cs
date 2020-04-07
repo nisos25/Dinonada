@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Container : MonoBehaviour
 {
-    protected Queue<EmpanadaContainer> Empanadas { get; set; } = new Queue<EmpanadaContainer>();
+    public Queue<EmpanadaContainer> Empanadas { get; set; } = new Queue<EmpanadaContainer>();
 
     public virtual int Iterator
     {
