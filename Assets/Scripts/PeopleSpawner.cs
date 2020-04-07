@@ -48,12 +48,7 @@ public class PeopleSpawner: MonoBehaviour
     {
         int[] ran = { -1, 1 };
         int ranPeople = Random.Range(0,people.Length); 
-        Instantiate(people[ranPeople],
-            new Vector2(xPositions[Random.Range(0,
-                        xPositions.Length)],
-                        Random.Range(-2,2))
-                        ,Quaternion.identity
-            );
+        Instantiate(people[ranPeople], new Vector2(xPositions[Random.Range(0, xPositions.Length)], Random.Range(-.55f,1.45f)),Quaternion.identity);
         yield return new WaitForSeconds(secondsToSpawn);
         StartCoroutine(Spawn());
     }
